@@ -359,14 +359,25 @@ function App() {
           structure, and growth.
         </p>
 
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSd8raQZUXuMtQt8rk5ngdrSYF9ipZebMTTK7jzlHzh-m7y8og/viewform?usp=publish-editor"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-12 py-5 text-xl font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
-        >
-          Apply to Join the Academy
-        </a>
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-center max-w-4xl mx-auto">
+          <a
+            href="https://forms.gle/jEtsZLF7bHtgTLAu6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-12 py-5 text-xl font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
+          >
+            Join Forex Academy
+          </a>
+
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSd8raQZUXuMtQt8rk5ngdrSYF9ipZebMTTK7jzlHzh-m7y8og/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-12 py-5 text-xl font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
+          >
+            Join AI Academy
+          </a>
+        </div>
 
         <p className="mt-6 text-sm text-gray-500 italic">
           Limited slots available. Selection is intentional.
