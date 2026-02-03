@@ -1,4 +1,55 @@
+import Dock, { type DockItemData } from "./components/Dock";
+import { Home, BookOpen, Users, Award, Mail, TrendingUp } from "lucide-react";
+
 function App() {
+  const dockItems: DockItemData[] = [
+    {
+      icon: <Home className="w-6 h-6 text-[#02ccfe]" />,
+      label: "Home",
+      onClick: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6 text-[#02ccfe]" />,
+      label: "Programs",
+      onClick: () =>
+        document
+          .querySelector(".programs-section")
+          ?.scrollIntoView({ behavior: "smooth" }),
+    },
+    {
+      icon: <Users className="w-6 h-6 text-[#02ccfe]" />,
+      label: "Testimonials",
+      onClick: () =>
+        document
+          .querySelector(".testimonials-section")
+          ?.scrollIntoView({ behavior: "smooth" }),
+    },
+    {
+      icon: <BookOpen className="w-6 h-6 text-[#02ccfe]" />,
+      label: "About",
+      onClick: () =>
+        document
+          .querySelector(".about-section")
+          ?.scrollIntoView({ behavior: "smooth" }),
+    },
+    {
+      icon: <Award className="w-6 h-6 text-[#02ccfe]" />,
+      label: "Benefits",
+      onClick: () =>
+        document
+          .querySelector(".benefits-section")
+          ?.scrollIntoView({ behavior: "smooth" }),
+    },
+    {
+      icon: <Mail className="w-6 h-6 text-[#02ccfe]" />,
+      label: "Apply",
+      onClick: () =>
+        document
+          .getElementById("registration")
+          ?.scrollIntoView({ behavior: "smooth" }),
+    },
+  ];
+
   const testimonials = [
     {
       name: "John D.",
@@ -28,6 +79,9 @@ function App() {
 
   return (
     <div className="w-full min-h-screen bg-gray-950">
+      {/* Floating Dock */}
+      <Dock items={dockItems} />
+
       {/* Section 1: Header & Introductory Video */}
       <section
         className="relative text-center py-24 px-8 bg-cover bg-center bg-no-repeat"
@@ -41,7 +95,10 @@ function App() {
 
         {/* Content */}
         <div className="relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#02ccfe] leading-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
+          <h1
+            className="text-5xl md:text-6xl font-bold mb-6 text-[#02ccfe] leading-tight"
+            style={{ fontFamily: "'Poppins', sans-serif" }}
+          >
             Financial Freedom Is a Skill.
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto">
@@ -77,7 +134,7 @@ function App() {
       </section>
 
       {/* Section 2: The 2 Arms of the Training Program */}
-      <section className="py-20 px-8 max-w-7xl mx-auto">
+      <section className="programs-section py-20 px-8 max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-4 text-white">
           The 2 Arms of the Training Program
         </h2>
@@ -154,7 +211,7 @@ function App() {
       </section>
 
       {/* Section 3: Testimonials */}
-      <section className="py-20 px-8 bg-gray-950 max-w-7xl mx-auto">
+      <section className="testimonials-section py-20 px-8 bg-gray-950 max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-4 text-white">
           Real People. Real Growth. Real Direction.
         </h2>
@@ -184,7 +241,7 @@ function App() {
       </section>
 
       {/* Section 4: About the Training */}
-      <section className="py-20 px-8 bg-gray-900 max-w-7xl mx-auto">
+      <section className="about-section py-20 px-8 bg-gray-900 max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-4 text-white">
           About the Academy
         </h2>
@@ -230,7 +287,7 @@ function App() {
       </section>
 
       {/* Section 5: Benefits */}
-      <section className="py-20 px-8 bg-gray-950 max-w-7xl mx-auto">
+      <section className="benefits-section py-20 px-8 bg-gray-950 max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-4 text-white">
           What You Will Gain
         </h2>
