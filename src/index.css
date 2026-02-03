@@ -125,3 +125,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Dot pattern backgrounds */
+.bg-dot-thick-neutral-800 {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-thick-\[#02ccfe\] {
+  background-image: radial-gradient(circle, rgba(2, 204, 254, 0.4) 1px, transparent 1px);
+  background-size: 20px 20px;
+}

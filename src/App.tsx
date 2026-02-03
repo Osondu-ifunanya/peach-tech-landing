@@ -1,5 +1,7 @@
 import Dock, { type DockItemData } from "./components/Dock";
+import { HeroHighlight, Highlight } from "./components/HeroHighlight";
 import { Home, BookOpen, Users, Award, Mail, TrendingUp } from "lucide-react";
+import { motion } from "motion/react";
 
 function App() {
   const dockItems: DockItemData[] = [
@@ -84,7 +86,7 @@ function App() {
 
       {/* Section 1: Header & Introductory Video */}
       <section
-        className="relative text-center py-24 px-8 bg-cover bg-center bg-no-repeat"
+        className="relative text-center py-24 px-8 bg-cover bg-center bg-no-repeat min-h-screen flex items-center"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop')",
@@ -93,44 +95,82 @@ function App() {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-linear-to-br from-[#02ccfe]/30 via-gray-900/90 to-gray-950/95"></div>
 
-        {/* Content */}
-        <div className="relative z-10">
-          <h1
-            className="text-5xl md:text-6xl font-bold mb-6 text-[#02ccfe] leading-tight"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
+        {/* Content with HeroHighlight */}
+        <HeroHighlight containerClassName="w-full">
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            className="relative z-10"
           >
-            Financial Freedom Is a Skill.
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto">
-            And like every skill, it can be learned, developed, and applied with
-            the right structure.
-          </p>
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-            We are building systems designed to meet you at the point of your
-            need — and guide you toward clarity, discipline, and growth.
-          </p>
-
-          <div className="max-w-3xl mx-auto my-12">
-            <video
-              className="w-full aspect-video rounded-xl border-2 border-[#02ccfe] shadow-lg"
-              controls
-              poster="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop"
+            <h1
+              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              style={{ fontFamily: "'Poppins', sans-serif" }}
             >
-              <source
-                src="https://res.cloudinary.com/dflgx1b4p/video/upload/v1770119498/peacch-1_nmdzmd.mp4"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+              <Highlight className="text-white">Financial Freedom</Highlight>{" "}
+              <span className="text-white">Is a</span>{" "}
+              <Highlight className="text-white">Skill.</Highlight>
+            </h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto"
+            >
+              And like every skill, it can be{" "}
+              <span className="text-[#02ccfe] font-semibold">learned</span>,{" "}
+              <span className="text-[#02ccfe] font-semibold">developed</span>,
+              and <span className="text-[#02ccfe] font-semibold">applied</span>{" "}
+              with the right structure.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+              className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto"
+            >
+              We are building systems designed to meet you at the point of your
+              need — and guide you toward clarity, discipline, and growth.
+            </motion.p>
 
-          <a
-            href="#registration"
-            className="inline-block px-10 py-4 text-lg font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
-          >
-            Begin the Journey
-          </a>
-        </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="max-w-3xl mx-auto my-12"
+            >
+              <video
+                className="w-full aspect-video rounded-xl border-2 border-[#02ccfe] shadow-2xl"
+                controls
+                poster="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop"
+              >
+                <source
+                  src="https://res.cloudinary.com/dflgx1b4p/video/upload/v1770119498/peacch-1_nmdzmd.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </motion.div>
+
+            <motion.a
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
+              href="#registration"
+              className="inline-block px-10 py-4 text-lg font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
+            >
+              Begin the Journey
+            </motion.a>
+          </motion.div>
+        </HeroHighlight>
       </section>
 
       {/* Section 2: The 2 Arms of the Training Program */}
