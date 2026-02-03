@@ -81,6 +81,20 @@ function App() {
 
   return (
     <div className="w-full min-h-screen bg-gray-950">
+      {/* Fixed Logo */}
+      <div className="fixed top-6 left-6 z-50">
+        <div
+          className="w-16 h-16 rounded-full border-2 border-[#02ccfe] bg-gray-900/80 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(2,204,254,0.5)]"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <img
+            src="/favicon-32x32.png"
+            alt="Peach Tech Group"
+            className="w-8 h-8"
+          />
+        </div>
+      </div>
+
       {/* Floating Dock */}
       <Dock items={dockItems} />
 
