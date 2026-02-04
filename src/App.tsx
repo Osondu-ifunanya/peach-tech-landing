@@ -2,6 +2,8 @@ import Dock, { type DockItemData } from "./components/Dock";
 import BubbleMenu, { type BubbleMenuProps } from "./components/BubbleMenu";
 import { HeroHighlight, Highlight } from "./components/HeroHighlight";
 import { CardContainer, CardBody, CardItem } from "./components/ui/3d-card";
+import DotGrid from "./components/DotGrid";
+import Threads from "./components/Threads";
 import { Home, BookOpen, Users, Award, Mail, TrendingUp } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -365,49 +367,70 @@ function App() {
       {/* Section 4: About the Training */}
       <section
         id="about"
-        className="about-section py-20 px-8 bg-gray-900 max-w-7xl mx-auto"
+        className="about-section py-20 px-8 bg-gray-900 max-w-7xl mx-auto relative overflow-hidden"
       >
-        <h2 className="text-4xl font-bold text-center mb-4 text-white">
-          About the Academy
-        </h2>
-        <div className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-300">
-          <p className="mb-6">
-            Many people desire financial stability but lack proper guidance,
-            structure, and direction.
-          </p>
-          <p className="mb-6">
-            At Peach Tech Group, we believe the problem is not effort — it is
-            lack of access to the right systems.
-          </p>
-          <p className="mb-4">
-            <strong className="text-[#02ccfe]">
-              This academy was created to:
-            </strong>
-          </p>
-          <ul className="space-y-2 my-6">
-            <li className="pl-8 relative">
-              <span className="absolute left-0 text-[#02ccfe] font-bold text-xl">
-                ✓
-              </span>
-              bridge the knowledge gap
-            </li>
-            <li className="pl-8 relative">
-              <span className="absolute left-0 text-[#02ccfe] font-bold text-xl">
-                ✓
-              </span>
-              provide practical learning
-            </li>
-            <li className="pl-8 relative">
-              <span className="absolute left-0 text-[#02ccfe] font-bold text-xl">
-                ✓
-              </span>
-              build individuals through structured education
-            </li>
-          </ul>
-          <p>
-            We focus on teaching principles, systems, and skills that help you
-            grow intentionally — not randomly.
-          </p>
+        {/* DotGrid Background */}
+        <div className="absolute inset-0 opacity-30">
+          <DotGrid
+            dotSize={6}
+            gap={20}
+            baseColor="#02ccfe"
+            activeColor="#00b8e6"
+            proximity={120}
+            speedTrigger={80}
+            shockRadius={250}
+            shockStrength={4}
+            className="h-full w-full"
+          />
+        </div>
+
+        {/* Background Color Overlay */}
+        <div className="absolute inset-0 bg-gray-900/80"></div>
+
+        {/* Content */}
+        <div className="relative z-10">
+          <h2 className="text-4xl font-bold text-center mb-4 text-white">
+            About the Academy
+          </h2>
+          <div className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-300">
+            <p className="mb-6">
+              Many people desire financial stability but lack proper guidance,
+              structure, and direction.
+            </p>
+            <p className="mb-6">
+              At Peach Tech Group, we believe the problem is not effort — it is
+              lack of access to the right systems.
+            </p>
+            <p className="mb-4">
+              <strong className="text-[#02ccfe]">
+                This academy was created to:
+              </strong>
+            </p>
+            <ul className="space-y-2 my-6">
+              <li className="pl-8 relative">
+                <span className="absolute left-0 text-[#02ccfe] font-bold text-xl">
+                  ✓
+                </span>
+                bridge the knowledge gap
+              </li>
+              <li className="pl-8 relative">
+                <span className="absolute left-0 text-[#02ccfe] font-bold text-xl">
+                  ✓
+                </span>
+                provide practical learning
+              </li>
+              <li className="pl-8 relative">
+                <span className="absolute left-0 text-[#02ccfe] font-bold text-xl">
+                  ✓
+                </span>
+                build individuals through structured education
+              </li>
+            </ul>
+            <p>
+              We focus on teaching principles, systems, and skills that help you
+              grow intentionally — not randomly.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -434,39 +457,55 @@ function App() {
       {/* Section 6: Registration CTA */}
       <section
         id="registration"
-        className="text-center py-24 px-8 bg-linear-to-br from-[#02ccfe]/20 via-gray-900 to-gray-950"
+        className="text-center py-24 px-8 relative overflow-hidden"
       >
-        <h2 className="text-4xl font-bold text-center mb-4 text-white">
-          Ready to Learn the Skill That Changes Direction?
-        </h2>
-        <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-          This is not about overnight success. This is about preparation,
-          structure, and growth.
-        </p>
-
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-center max-w-4xl mx-auto">
-          <a
-            href="https://forms.gle/jEtsZLF7bHtgTLAu6"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-12 py-5 text-xl font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
-          >
-            Join Forex Academy
-          </a>
-
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSd8raQZUXuMtQt8rk5ngdrSYF9ipZebMTTK7jzlHzh-m7y8og/viewform?usp=publish-editor"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-12 py-5 text-xl font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
-          >
-            Join AI Academy
-          </a>
+        {/* Threads Background */}
+        <div className="absolute inset-0 opacity-40">
+          <Threads
+            color={[0.008, 0.8, 0.996]}
+            amplitude={1.2}
+            distance={0.15}
+            enableMouseInteraction={true}
+          />
         </div>
 
-        <p className="mt-6 text-sm text-gray-500 italic">
-          Limited slots available. Selection is intentional.
-        </p>
+        {/* Background Color Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#02ccfe]/20 via-gray-900/70 to-gray-950/70"></div>
+
+        {/* Content */}
+        <div className="relative z-10">
+          <h2 className="text-4xl font-bold text-center mb-4 text-white">
+            Ready to Learn the Skill That Changes Direction?
+          </h2>
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            This is not about overnight success. This is about preparation,
+            structure, and growth.
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-6 justify-center items-center max-w-4xl mx-auto">
+            <a
+              href="https://forms.gle/jEtsZLF7bHtgTLAu6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-12 py-5 text-xl font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
+            >
+              Join Forex Academy
+            </a>
+
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSd8raQZUXuMtQt8rk5ngdrSYF9ipZebMTTK7jzlHzh-m7y8og/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-12 py-5 text-xl font-semibold bg-[#02ccfe] text-black rounded-lg transition-all duration-300 hover:bg-[#00b8e6] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(2,204,254,0.3)]"
+            >
+              Join AI Academy
+            </a>
+          </div>
+
+          <p className="mt-6 text-sm text-gray-500 italic">
+            Limited slots available. Selection is intentional.
+          </p>
+        </div>
       </section>
 
       {/* Footer */}
