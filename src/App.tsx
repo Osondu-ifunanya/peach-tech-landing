@@ -206,9 +206,17 @@ function App() {
               className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto"
             >
               And like every skill, it can be{" "}
-              <span className="text-[#02ccfe] font-semibold uppercase">learned</span>,{" "}
-              <span className="text-[#02ccfe] font-semibold uppercase">developed</span>,
-              and <span className="text-[#02ccfe] font-semibold uppercase">applied</span>{" "}
+              <span className="text-[#02ccfe] font-semibold uppercase">
+                learned
+              </span>
+              ,{" "}
+              <span className="text-[#02ccfe] font-semibold uppercase">
+                developed
+              </span>
+              , and{" "}
+              <span className="text-[#02ccfe] font-semibold uppercase">
+                applied
+              </span>{" "}
               with the right structure.
             </motion.p>
             <motion.p
@@ -459,8 +467,24 @@ function App() {
         id="registration"
         className="text-center py-24 px-8 relative overflow-hidden"
       >
-        {/* Threads Background */}
-        <div className="absolute inset-0 opacity-40">
+        {/* Video Background for Mobile (Low-end devices) */}
+        <div className="absolute inset-0 md:hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+          >
+            <source
+              src="https://res.cloudinary.com/dflgx1b4p/video/upload/v1770185057/31375-386628881_medium_hlk4gp.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        {/* Threads Background for Desktop */}
+        <div className="absolute inset-0 opacity-40 hidden md:block">
           <Threads
             color={[0.008, 0.8, 0.996]}
             amplitude={1.2}
