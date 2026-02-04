@@ -246,7 +246,6 @@ export default function BubbleMenu({
             'shadow-[0_4px_16px_rgba(0,0,0,0.12)]',
             'pointer-events-auto',
             'h-12 md:h-14',
-            'px-4 md:px-8',
             'gap-2',
             'will-change-transform'
           ].join(' ')}
@@ -258,7 +257,7 @@ export default function BubbleMenu({
           }}
         >
           <span
-            className={['logo-content', 'inline-flex items-center justify-center', 'w-[120px] h-full'].join(' ')}
+            className={['logo-content', 'w-16 h-16 rounded-full border-2 border-[#02ccfe] bg-gray-900/80 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(2,204,254,0.5)]'].join(' ')}
             style={
               {
                 ['--logo-max-height']: '60%',

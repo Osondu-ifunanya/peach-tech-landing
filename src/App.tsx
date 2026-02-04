@@ -1,6 +1,7 @@
 import Dock, { type DockItemData } from "./components/Dock";
 import BubbleMenu, { type BubbleMenuProps } from "./components/BubbleMenu";
 import { HeroHighlight, Highlight } from "./components/HeroHighlight";
+import { CardContainer, CardBody, CardItem } from "./components/ui/3d-card";
 import { Home, BookOpen, Users, Award, Mail, TrendingUp } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -138,11 +139,16 @@ function App() {
       <div className="md:hidden">
         <BubbleMenu
           logo={
-            <img
-              src="/favicon-32x32.png"
-              alt="Peach Tech Group"
-              className="w-8 h-8"
-            />
+            <div
+              className="w-16 h-16 rounded-full bg-gray-900/80 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(2,204,254,0.5)]"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <img
+                src="/favicon-32x32.png"
+                alt="Peach Tech Group"
+                className="w-8 h-8"
+              />
+            </div>
           }
           items={bubbleMenuItems}
           menuBg="#1f2937"
@@ -158,10 +164,10 @@ function App() {
 
       {/* Section 1: Header & Introductory Video */}
       <section
-        className="relative text-center py-24 px-8 bg-cover bg-center bg-no-repeat min-h-screen flex items-center"
+        className="relative text-center py-24 px-8 bg-cover bg-center bg-no-repeat bg-fixed min-h-screen flex items-center"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop')",
+            "url('https://res.cloudinary.com/dflgx1b4p/image/upload/v1770181131/peach_bg_bezvtu.jpg')",
         }}
       >
         {/* Gradient Overlay */}
@@ -255,73 +261,64 @@ function App() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 mt-12">
-          <div className="bg-black/50 border-2 border-[#02ccfe]/30 rounded-xl p-10 transition-all duration-300 hover:border-[#02ccfe] hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(2,204,254,0.2)]">
-            <h3 className="text-3xl text-[#02ccfe] mb-4">
-              Peach Trading Floor
-            </h3>
-            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              A structured environment focused on understanding financial
-              markets, discipline, risk management, and decision-making.
-            </p>
-            <div>
-              <p className="text-white mb-3">
-                <strong>Designed to help you:</strong>
-              </p>
-              <ul className="space-y-2">
-                <li className="pl-6 relative text-gray-300">
-                  <span className="absolute left-0 text-[#02ccfe] font-bold">
-                    →
-                  </span>
-                  Think like a trader
-                </li>
-                <li className="pl-6 relative text-gray-300">
-                  <span className="absolute left-0 text-[#02ccfe] font-bold">
-                    →
-                  </span>
-                  Operate with structure
-                </li>
-                <li className="pl-6 relative text-gray-300">
-                  <span className="absolute left-0 text-[#02ccfe] font-bold">
-                    →
-                  </span>
-                  Build consistency over emotion
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-gray-950 border-2 border-[#02ccfe]/30 rounded-xl p-10 transition-all duration-300 hover:border-[#02ccfe] hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(2,204,254,0.2)]">
-            <h3 className="text-3xl text-[#02ccfe] mb-4">Peach AI Media</h3>
-            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              A modern skill department focused on digital tools, AI systems,
-              and technology-driven solutions for growth and relevance.
-            </p>
-            <div>
-              <p className="text-white mb-3">
-                <strong>Designed to help you:</strong>
-              </p>
-              <ul className="space-y-2">
-                <li className="pl-6 relative text-gray-300">
-                  <span className="absolute left-0 text-[#02ccfe] font-bold">
-                    →
-                  </span>
-                  Understand today's digital economy
-                </li>
-                <li className="pl-6 relative text-gray-300">
-                  <span className="absolute left-0 text-[#02ccfe] font-bold">
-                    →
-                  </span>
-                  Leverage technology for efficiency
-                </li>
-                <li className="pl-6 relative text-gray-300">
-                  <span className="absolute left-0 text-[#02ccfe] font-bold">
-                    →
-                  </span>
-                  Build skills that remain valuable
-                </li>
-              </ul>
-            </div>
-          </div>
+          {[
+            {
+              title: "Peach Trading Floor",
+              description:
+                "A structured environment focused on understanding financial markets, discipline, risk management, and decision-making.",
+              points: [
+                "Think like a trader",
+                "Operate with structure",
+                "Build consistency over emotion",
+              ],
+            },
+            {
+              title: "Peach AI Media",
+              description:
+                "A modern skill department focused on digital tools, AI systems, and technology-driven solutions for growth and relevance.",
+              points: [
+                "Understand today's digital economy",
+                "Leverage technology for efficiency",
+                "Build skills that remain valuable",
+              ],
+            },
+          ].map((program, idx) => (
+            <CardContainer
+              key={idx}
+              className="w-full"
+              containerClassName="py-0"
+            >
+              <CardBody className="border border-[#02ccfe]/30 rounded-3xl bg-black/50 p-10 hover:border-[#02ccfe] transition-all duration-300 w-full h-auto">
+                <CardItem translateZ="50" className="w-full">
+                  <h3 className="text-3xl text-[#02ccfe] mb-4">
+                    {program.title}
+                  </h3>
+                </CardItem>
+                <CardItem translateZ="60" className="w-full">
+                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                    {program.description}
+                  </p>
+                </CardItem>
+                <CardItem translateZ="70" className="w-full">
+                  <div>
+                    <p className="text-white mb-3">
+                      <strong>Designed to help you:</strong>
+                    </p>
+                    <ul className="space-y-2">
+                      {program.points.map((point, i) => (
+                        <li key={i} className="pl-6 relative text-gray-300">
+                          <span className="absolute left-0 text-[#02ccfe] font-bold">
+                            →
+                          </span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+          ))}
         </div>
       </section>
 
