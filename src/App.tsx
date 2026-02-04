@@ -1,4 +1,5 @@
 import Dock, { type DockItemData } from "./components/Dock";
+import BubbleMenu, { type BubbleMenuProps } from "./components/BubbleMenu";
 import { HeroHighlight, Highlight } from "./components/HeroHighlight";
 import { Home, BookOpen, Users, Award, Mail, TrendingUp } from "lucide-react";
 import { motion } from "motion/react";
@@ -79,10 +80,48 @@ function App() {
     "Confidence built on knowledge, not assumptions",
   ];
 
+  const bubbleMenuItems: BubbleMenuProps["items"] = [
+    {
+      label: "home",
+      href: "#",
+      ariaLabel: "Home",
+      rotation: -8,
+      hoverStyles: { bgColor: "#02ccfe", textColor: "#ffffff" },
+    },
+    {
+      label: "programs",
+      href: "#programs",
+      ariaLabel: "Programs",
+      rotation: 8,
+      hoverStyles: { bgColor: "#10b981", textColor: "#ffffff" },
+    },
+    {
+      label: "testimonials",
+      href: "#testimonials",
+      ariaLabel: "Testimonials",
+      rotation: -8,
+      hoverStyles: { bgColor: "#f59e0b", textColor: "#ffffff" },
+    },
+    {
+      label: "about",
+      href: "#about",
+      ariaLabel: "About",
+      rotation: 8,
+      hoverStyles: { bgColor: "#ef4444", textColor: "#ffffff" },
+    },
+    {
+      label: "apply",
+      href: "#registration",
+      ariaLabel: "Apply",
+      rotation: -8,
+      hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
+    },
+  ];
+
   return (
     <div className="w-full min-h-screen bg-gray-950">
-      {/* Fixed Logo */}
-      <div className="fixed top-6 left-6 z-50">
+      {/* Fixed Logo - Hidden on mobile when BubbleMenu is visible */}
+      <div className="hidden md:block fixed top-6 left-6 z-50">
         <div
           className="w-16 h-16 rounded-full border-2 border-[#02ccfe] bg-gray-900/80 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(2,204,254,0.5)]"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -95,8 +134,27 @@ function App() {
         </div>
       </div>
 
-      {/* Floating Dock */}
-      <Dock items={dockItems} />
+      {/* BubbleMenu - Mobile only */}
+      <div className="md:hidden">
+        <BubbleMenu
+          logo={
+            <img
+              src="/favicon-32x32.png"
+              alt="Peach Tech Group"
+              className="w-8 h-8"
+            />
+          }
+          items={bubbleMenuItems}
+          menuBg="#1f2937"
+          menuContentColor="#02ccfe"
+          useFixedPosition={true}
+        />
+      </div>
+
+      {/* Floating Dock - Desktop only */}
+      <div className="hidden md:block">
+        <Dock items={dockItems} />
+      </div>
 
       {/* Section 1: Header & Introductory Video */}
       <section
@@ -188,7 +246,10 @@ function App() {
       </section>
 
       {/* Section 2: The 2 Arms of the Training Program */}
-      <section className="programs-section py-20 px-8 max-w-7xl mx-auto">
+      <section
+        id="programs"
+        className="programs-section py-20 px-8 max-w-7xl mx-auto"
+      >
         <h2 className="text-4xl font-bold text-center mb-4 text-white">
           The 2 Arms of the Training Program
         </h2>
@@ -265,7 +326,10 @@ function App() {
       </section>
 
       {/* Section 3: Testimonials */}
-      <section className="testimonials-section py-20 px-8 bg-gray-950 max-w-7xl mx-auto">
+      <section
+        id="testimonials"
+        className="testimonials-section py-20 px-8 bg-gray-950 max-w-7xl mx-auto"
+      >
         <h2 className="text-4xl font-bold text-center mb-4 text-white">
           Real People. Real Growth. Real Direction.
         </h2>
@@ -295,7 +359,10 @@ function App() {
       </section>
 
       {/* Section 4: About the Training */}
-      <section className="about-section py-20 px-8 bg-gray-900 max-w-7xl mx-auto">
+      <section
+        id="about"
+        className="about-section py-20 px-8 bg-gray-900 max-w-7xl mx-auto"
+      >
         <h2 className="text-4xl font-bold text-center mb-4 text-white">
           About the Academy
         </h2>
