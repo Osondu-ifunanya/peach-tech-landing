@@ -197,7 +197,7 @@ function App() {
             >
               <Highlight className="text-white">Financial Freedom</Highlight>{" "}
               <span className="text-white">Is a</span>{" "}
-              <Highlight className="text-white">Skill.</Highlight>
+              <Highlight className="text-white uppercase">Skill.</Highlight>
             </h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -206,9 +206,9 @@ function App() {
               className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto"
             >
               And like every skill, it can be{" "}
-              <span className="text-[#02ccfe] font-semibold">learned</span>,{" "}
-              <span className="text-[#02ccfe] font-semibold">developed</span>,
-              and <span className="text-[#02ccfe] font-semibold">applied</span>{" "}
+              <span className="text-[#02ccfe] font-semibold uppercase">learned</span>,{" "}
+              <span className="text-[#02ccfe] font-semibold uppercase">developed</span>,
+              and <span className="text-[#02ccfe] font-semibold uppercase">applied</span>{" "}
               with the right structure.
             </motion.p>
             <motion.p
