@@ -241,7 +241,7 @@ function App() {
                 poster="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop"
               >
                 <source
-                  src="https://res.cloudinary.com/dflgx1b4p/video/upload/v1770119498/peacch-1_nmdzmd.mp4"
+                  src="https://res.cloudinary.com/dflgx1b4p/video/upload/v1771213432/peach-2_tl3hjx.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -477,7 +477,7 @@ function App() {
             className="w-full h-full object-cover opacity-30"
           >
             <source
-              src="https://res.cloudinary.com/dflgx1b4p/video/upload/v1771213432/peach-2_tl3hjx.mp4"
+              src="https://res.cloudinary.com/dflgx1b4p/video/upload/v1770185057/31375-386628881_medium_hlk4gp.mp4"
               type="video/mp4"
             />
           </video>
